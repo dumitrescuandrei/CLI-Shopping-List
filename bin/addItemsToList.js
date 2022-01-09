@@ -1,6 +1,7 @@
 const { prompt } = require("enquirer");
 const path = require("path");
 const { copySync, mkdirSync, writeFileSync } = require("fs-extra");
+const { fstat, createWriteStream, writeFile } = require("fs");
 
 function addItemsToList() {
     const itemsOptions = prompt([
@@ -11,8 +12,8 @@ function addItemsToList() {
             initial: path.basename(process.cwd())
         },
         {
-            name: "itemone",
-            type: "input",
+            name: "items",
+            type: "array",
             message: "Insert an item"
         }
     ])
@@ -21,7 +22,12 @@ function addItemsToList() {
 
         const configString = JSON.stringify(config, null, "\t");
 
-        writeFileSync(path.join(process.cwd(), config.name + ".json"), configString, "utf-8");
+        writeFile(path.join(process.cwd(), config.name + ".json"), configString, {
+            flag: "r+"
+        },
+        (err) => {
+            if(err) throw err;
+        });
     })
 }
 
