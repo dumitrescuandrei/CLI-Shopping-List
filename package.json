@@ -1,0 +1,28 @@
+{
+  "name": "cli-shopping-list",
+  "version": "1.0.0",
+  "description": "A CLI to manage your shopping needs.",
+  "bin": {
+    "shopping-tools": "./bin/index.js"
+  },
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumitrescuandrei/CLI-Shopping-List.git"
+  },
+  "author": "andrei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dumitrescuandrei/CLI-Shopping-List/issues"
+  },
+  "homepage": "https://github.com/dumitrescuandrei/CLI-Shopping-List#readme",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "enquirer": "^2.3.6",
+    "fs-extra": "^10.0.0",
+    "yargs": "^17.3.1"
+  }
+}
