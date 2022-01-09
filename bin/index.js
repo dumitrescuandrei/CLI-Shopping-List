@@ -1,8 +1,11 @@
 #! /usr/bin/env node
 
+
+
 const { Command } = require('commander');
 
 const { createlist } = require("./createlist");
+const { addItemsToList } = require("./addItemsToList");
 
 /* const yargs = require("yargs"); */
 const utils = require('./utils.js');
@@ -29,6 +32,10 @@ const program = new Command();
 program
     .command("create-list")
     .action(createlist);
+
+program
+    .command("add-items-to-list")
+    .action(addItemsToList);
 
 
 program.parse();
